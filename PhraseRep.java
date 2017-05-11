@@ -19,6 +19,10 @@ public class PhraseRep
         phrases.add(new Phrase("You is kind. You is smart. You is important."));
         phrases.add(new Phrase("Gentlemen, you can't fight in here! This is the war room!"));
     }
+    public Phrase randomPhrase()
+    {
+        return phrases.get((int) (Math.random()*phrases.size()));
+    }
 
 
 }
