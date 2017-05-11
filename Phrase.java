@@ -17,4 +17,8 @@ public class Phrase
     {
         str = s;
     }
+    public String toString()
+    {
+        return str;
+    }
 }
