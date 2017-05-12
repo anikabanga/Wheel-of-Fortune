@@ -13,10 +13,12 @@ public class Move
     /**
      * Constructor for objects of class Move
      */
-    public Move()
+    public Move(Player p)
     {
-        // initialise instance variables
-        x = 0;
+        int money = ((int) Math.random()*1,000,000);
+        if(money == 0)
+        {
+        }
     }
 
     /**
