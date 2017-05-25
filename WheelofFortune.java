@@ -9,7 +9,7 @@ import java.awt.Frame;
  */
 public class WheelofFortune
 {
-    int[] possibilities = {2, 3};
+    Integer[] possibilities = {2, 3};
     private ArrayList<Player> players;
     /**
      * Constructor for objects of class WheelofFortune
@@ -31,6 +31,4 @@ public class WheelofFortune
         }
         
     }
-    }
-
 }
