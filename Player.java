@@ -1,3 +1,4 @@
+
 /**
  * Write a description of class Player here.
  * 
@@ -27,5 +28,9 @@ public class Player
     public void setAmt(int x)
     {
         balance = x;
+    }
+    public void pay(int x)
+    {
+        balance+=x;
     }
 }
