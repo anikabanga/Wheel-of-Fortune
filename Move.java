@@ -15,7 +15,7 @@ public class Move
      */
     public Move(Player p)
     {
-        int money = ((int) Math.random()*1,000,000);
+        int money = ((int) Math.random()*1000000);
         if(money == 0)
         {
         }
