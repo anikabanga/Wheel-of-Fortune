@@ -1,6 +1,6 @@
 import java.util.*;
 /**
- * Write a description of class PhraseRep here.
+ * Stores all phrases
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -13,6 +13,7 @@ public class PhraseRep
      */
     public PhraseRep()
     {
+        //good stuff
         phrases.add(new Phrase("et tu Brute"));
         phrases.add(new Phrase("My dear Watson"));
         phrases.add(new Phrase("Anika is Queen"));
