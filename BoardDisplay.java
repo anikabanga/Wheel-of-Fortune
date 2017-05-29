@@ -65,13 +65,13 @@ public class BoardDisplay implements ActionListener
                     grid[row][col].setBackground(new Color(125, 200, 170));
                     else if(row==2)
                     grid[row][col].setBackground(new Color(150, 240, 210));
-                grid[row][col].setPreferredSize(new Dimension(100, 100));
+                grid[row][col].setPreferredSize(new Dimension(200, 400));
                 grid[row][col].setActionCommand(row + "," + col);
                 grid[row][col].addActionListener(this);
                 frame.getContentPane().add(grid[row][col]);
             }
 
-        //Show the pieces
+        //Show the letters
         showBoard();
 
         //Display the window.
@@ -79,19 +79,15 @@ public class BoardDisplay implements ActionListener
         frame.setVisible(true);
     }
 
-    //Called when a square is clicked.
     public void actionPerformed(ActionEvent event)
     {
-        //Determine location of clicked button.
-        String command = event.getActionCommand();
-        int comma = command.indexOf(",");
-        int row = Integer.parseInt(command.substring(0, comma));
-        int col = Integer.parseInt(command.substring(comma + 1));
-        Location loc = new Location(row, col);
-
+        //this method is literally never used
+        //useless
+        //needed to keep blank method because some ActionListener
+        //methods are still sort of useful :(
     }
 
-    //Redraws the board to include the pieces and border colors.
+    //Redraws the board
     public void showBoard()
     {
 		for (int row = 0; row < grid.length; row++)
@@ -104,7 +100,10 @@ public class BoardDisplay implements ActionListener
 				Icon icon = null;
 				if (letter != null)
 				{
-					//System.out.println(loc);
+					//a space Letter obj will always return "default"--which means no image
+					//is displayed. Otherwise, file image will change based on whether
+					//a Letter object has been "revealed"--can be toggled through 
+					//"reveal" method
 					String s = letter.getImageFileName();
 					if(s.equals("default"))
 					{}
@@ -120,37 +119,5 @@ public class BoardDisplay implements ActionListener
 				else
 					grid[row][col].setBorder(BorderFactory.createLineBorder(color));
 			}
-    }
-
-    // Waits for the user to select a move and returns this move.
-    public Move selectMove()
-    {
-        return null;
-    }
-
-    // Sets the title of the window.
-    public void setTitle(String title)
-    {
-        frame.setTitle(title);
-    }
-
-    // Sets the color of the border for the given location, and redraws it.
-    public void setColor(Location loc, Color color)
-    {
-        colors[loc.getRow()][loc.getCol()] = color;
-        showBoard();
-    }
-
-    // Clears all border colors and redraws the board.
-    public void clearColors()
-    {
-        for (int row = 0; row < colors.length; row++)
-            for (int col = 0; col < colors[row].length; col++)
-                colors[row][col] = null;
-        showBoard();
-    }
-
-    public void reveal()
-    {
     }
 }
