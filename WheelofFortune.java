@@ -43,7 +43,6 @@ public class WheelofFortune
 
         PhraseRep rep = new PhraseRep();
         phrase = rep.randomPhrase();
-        System.out.println(phrase);
         letters = phrase.getLetters();
         lettersCopy = ((ArrayList<Letter>)letters.clone());
         int z=0;
@@ -73,17 +72,22 @@ public class WheelofFortune
                     boolean tieSituation = false;
                     int money = ((int) (Math.random()*900));
                     Object guess = pane.showInputDialog(f, players.get(i).getName() + "'s guess" , null, JOptionPane.PLAIN_MESSAGE);
-                    System.out.println(lettersCopy.size());
                     if(((String)guess).equals(phrase.toString()) || lettersCopy.size()==0)
                     {
+                        //GAME OVER situation
                         Player winner = null;
                         won=true;
                         int max=0;
+                        //here, the player that guesses the entire phrase doesn't automatically win,
+                        //but gets a pretty large amount of money
+                        players.get(i).pay(money*5);
+                        //calculate max amt of money being held
                         for(Player p : players)
                         {
                             if(p.getAmt()>max)
                                 max=p.getAmt();
                         }
+                        //determines whether there has been a tie
                         for(Player p : players)
                         {
                             if(p.getAmt() == max)
@@ -92,13 +96,26 @@ public class WheelofFortune
                                 else
                                     tieSituation = true;
                         }
+                        //if no tie, gives the win to player with most money--otherwise,
+                        //else statement will deal alert players of a tie--NO TIEBREAKER
                         if(!tieSituation)
-                            pane.showMessageDialog(null, winner.getName()+"is winner");
+                        {
+                            for(int e=0; e<letters.size(); e++)
+                            {
+                                Letter l = letters.get(e);
+                                l.reveal();
+                            }
+                            display.showBoard();
+                            pane.showMessageDialog(null, winner.getName()+" is winner");
+                        }
                         else
                             pane.showMessageDialog(null, "TIE");
                     }	
                     else
                     {
+                        //this section will reveal all letters equal to guessed letter and gives
+                        //player money equal to the randomly generated amount * number
+                        //of letters revealed
                         int count = 0;
                         for(int m=0; m<letters.size(); m++)
                         {
