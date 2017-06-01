@@ -19,8 +19,12 @@ public class Letter
     {
         let = letter.toLowerCase();
         hidden = new String("hidden.gif");
-        revealed = new String(letter.toUpperCase() + ".gif");
-        state = false;
+        String s = letter.toUpperCase();
+        if(!s.equals("."))
+            revealed = s + ".gif";
+            else
+            revealed = "per.gif";
+        state = !(!letter.equals("'") && !letter.equals(".") && !letter.equals(","));
     }
 
     public String getImageFileName()
