@@ -2,14 +2,14 @@ import java.util.*;
 import javax.swing.JOptionPane;
 import java.awt.Frame;
 /**
- * Write a description of class WheelofFortune here.
+ * A game of Wheel of Fortune
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Anika Banga, Morgan Douglas, Julia Huang
+ * @version June 1, 2017
  */
 public class WheelofFortune
 {
-    // instance variables - replace the example below with your own
+    // instance variables
     Object[] possibilities = {2, 3};
     private ArrayList<Player> players;
     private Board board;
@@ -60,7 +60,7 @@ public class WheelofFortune
         display.showBoard();
         play();
     }
-
+    //plays the game
     public void play()
     {
         while(!won)
